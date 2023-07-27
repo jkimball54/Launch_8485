@@ -19,7 +19,12 @@
 
 @foreach (var state in Model)
 {
-    <p><strong>@state.Abbreviation</strong>: <a href="/states/@state.Id">@state.Name</a></p>
+
+    <p>
+        <form method="post" action="/states/delete/@state.Id">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete @state.Name?')">Delete</button>
+        </form><strong>@state.Abbreviation</strong>: <a href="/states/@state.Id">@state.Name</a>
+    </p>
 }
 
 <p><a href="/states/new">New State</a></p>
